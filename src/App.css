@@ -1,0 +1,33 @@
+@font-face {
+    font-family: kurale;
+    src: url('/Kurale-Regular.ttf');
+}
+
+html body {
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-track:where([data-mode="dark"]) {
+    background: rgba(0, 0, 0, 1);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
