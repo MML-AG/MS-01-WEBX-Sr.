@@ -250,9 +250,8 @@ function Component() {
           {darkMode ? <Sun /> : <Moon />}
         </Button>
         <Button
-          color="primary"
           variant="shadow"
-          className="font-semibold text-base"
+          className="font-semibold text-base bg-gradient-to-tr from-green-900 to-green-800 text-white shadow-lg font-semibold mr-[2vw]"
           onClick={() => navigate("/donate")}
         >
           Donate
