@@ -27,7 +27,6 @@ function App() {
             <>
               <Navbar />
               <Home />
-              <Footer />
             </>} />
           <Route loader path='/Projects' element={
             <>
@@ -48,6 +47,12 @@ function App() {
               <Footer />
             </>} />
             <Route loader={<Loader />} path='/donate' element={
+            <>
+              <Navbar />
+              <Donate />
+              <Footer />
+            </>} />
+            <Route loader={<Loader />} path='/dashboard' element={
             <>
               <Navbar />
               <Donate />

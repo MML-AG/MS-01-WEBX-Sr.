@@ -20,6 +20,7 @@ import { ChevronDown } from "../../Icons";
 import useDarkMode from "../../Hooks/useDarkMode";
 import { Sun, Moon } from "../../Icons";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Component() {
   const [darkMode, setDarkMode] = useDarkMode();
@@ -54,6 +55,9 @@ function Component() {
     },
   ];
 
+  const { loginWithRedirect, isAuthenticated,user } = useAuth0();
+  const { logout } = useAuth0();
+ 
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
@@ -249,13 +253,32 @@ function Component() {
         >
           {darkMode ? <Sun /> : <Moon />}
         </Button>
-        <Button
+
+        {isAuthenticated ? (
+<div>
+<Button
+            variant="shadow"
+            className="font-semibold text-base bg-gradient-to-tr from-green-900 to-green-800 text-white shadow-lg font-semibold mr-[2vw]"
+            onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+            >
+            Log out
+          </Button>
+
+          
+            </div>
+        
+          ) : (
+            <Button
           variant="shadow"
           className="font-semibold text-base bg-gradient-to-tr from-green-900 to-green-800 text-white shadow-lg font-semibold mr-[2vw]"
-          onClick={() => navigate("/donate")}
+          onClick={() => loginWithRedirect()}
         >
-          Donate
+          Log in
         </Button>
+          )
+        }
+        
+
       </NavbarContent>
       <NavbarMenu className="pt-8">
         {menuItems.map((item, index) => (
